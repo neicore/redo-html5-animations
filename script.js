@@ -66,26 +66,26 @@ let connection_n_2 = document.querySelector('.Stage_titles_alt_nCopy2_id');
 let connection_n_2_alt = document.querySelector('.Stage_titles_n_3_id');
 
 //Function for changing letters
-function changeLetter(currentLetter, replacingLetter, posX_1, posY_1, posX_2, posY_2, delay) {
+function changeLetter(currentLetter, replacingLetter, posX_1, posY_1, posX_2, posY_2, duration) {
     replacingLetter.style.display = 'block';
     currentLetter.style.display = 'block';
 
     anime({
         targets: currentLetter,
         backgroundPosition: `${posX_1}px ${posY_1}px`,
-        easing: 'easeInOutSine',
-        delay: delay,
+        easing: 'easeOutExpo',
+        duration: duration,
     });
 
     anime({
         targets: replacingLetter,
         backgroundPosition: `${posX_2}px ${posY_2}px`,
-        easing: 'easeInOutSine',
-        delay: delay,
+        easing: 'easeOutExpo',
+        duration: duration,
     });
 }
 
-// Change background position
+//Function for changing background position
 function changeBackgroundPosition(letter, positionX, positionY) {
     letter.style.display = 'none';
     anime({
@@ -94,6 +94,7 @@ function changeBackgroundPosition(letter, positionX, positionY) {
     });
 }
 
+// Resseting all leters to black before the titles scales up
 changeLetter(my_m_alt, my_m, 80, 0, 0, 0, 0);
 changeLetter(spot_p_alt, spot_p, 75, 0, 0, 0, 0);
 changeLetter(spot_o_alt, spot_o, 80, 0, 0, 0, 0);
@@ -108,7 +109,31 @@ changeLetter(connection_i_alt, connection_i, 25, 0, 0, 0, 0);
 changeLetter(connection_o_1_alt, connection_o_1, 0, -53, 0, 0, 0);
 changeLetter(connection_n_2_alt, connection_n_2, 0, 52, 0, 0, 0);
 
-// Scaling all titles to 1
+// Resseting background position of all alternative letter
+changeBackgroundPosition(my_m_alt, 80, 0, 0, 0);
+changeBackgroundPosition(my_y_alt, 80, 0, 0, 0);
+
+changeBackgroundPosition(spot_s_alt, 80, 0, 0, 0);
+changeBackgroundPosition(spot_p_alt, 80, 0, 0, 0);
+changeBackgroundPosition(spot_o_alt, 80, 0, 0, 0);
+changeBackgroundPosition(spot_t_alt, 80, 0, 0, 0);
+
+changeBackgroundPosition(your_alt, 280, 0, 0, 0);
+changeBackgroundPosition(friend_alt, 280, 0, 0, 0);
+
+changeBackgroundPosition(connection_c_0_alt, 80, 0, 0, 0);
+changeBackgroundPosition(connection_o_0_alt, 80, 0, 0, 0);
+changeBackgroundPosition(connection_n_0_alt, 80, 0, 0, 0);
+changeBackgroundPosition(connection_n_1_alt, 80, 0, 0, 0);
+changeBackgroundPosition(connection_e_alt, 80, 0, 0, 0);
+changeBackgroundPosition(connection_c_1_alt, 80, 0, 0, 0);
+changeBackgroundPosition(connection_t_alt, 80, 0, 0, 0);
+changeBackgroundPosition(connection_i_alt, 80, 0, 0, 0);
+changeBackgroundPosition(connection_o_1_alt, 80, 0, 0, 0);
+changeBackgroundPosition(connection_n_2_alt, 80, 0, 0, 0);
+
+// starting animation
+// Sequence 1: Scaling up all titles to 1 from 0
 anime({
     targets: titlesContainer,
     scale: {
@@ -119,98 +144,63 @@ anime({
     delay: anime.stagger(100, { start: 700 }),
 });
 
-// starting animation
-let timeOut = 3000;
-
 function callThem() {
-    setTimeout(() => {
-        changeLetter(my_m_alt, my_m, 0, 0, -80, 0, 0);
-        changeLetter(my_y_alt, my_y, 0, 0, 50, 0, 0);
-        changeLetter(friend_alt, friend, 0, 0, 0, 80, 0);
-    }, timeOut);
 
+    //Sequence 2: Changing "MY SPOT" from black letters to alternative letters
     setTimeout(() => {
-        changeLetter(spot_s_alt, spot_s, 0, 0, 75, 0, 0);
-        changeLetter(spot_p, spot_p_alt, -75, 0, 0, 0, 0);
-        changeLetter(spot_o, spot_o_alt, -80, 0, 0, 0, 0);
-        changeLetter(spot_t_alt, spot_t, 0, 0, 0, 100, 0);
-        changeLetter(your_alt, your, 0, 0, 0, 80, 0);
-    }, timeOut + 2000);
+        changeLetter(my_m, my_m_alt, -80, 0, 0, 0, 2000);
+        changeLetter(my_y, my_y_alt, -80, 0, 0, 0, 2000);
 
+        changeLetter(spot_s, spot_s_alt, -80, 0, 0, 0, 2000);
+        changeLetter(spot_p, spot_p_alt, -80, 0, 0, 0, 2000);
+        changeLetter(spot_o, spot_o_alt, -80, 0, 0, 0, 2000);
+        changeLetter(spot_t, spot_t_alt, -80, 0, 0, 0, 2000);
+    }, 3000);
+
+    //Sequence 3: Changing "YOUR FRIEND" from black letters to alternative letters
     setTimeout(() => {
-        changeBackgroundPosition(my_m, -80, 0);
-        changeBackgroundPosition(my_y, -80, 0);
-        changeBackgroundPosition(spot_s, -80, 0);
-        changeBackgroundPosition(spot_p, -80, 0);
-        changeBackgroundPosition(spot_o, -80, 0);
-        changeBackgroundPosition(spot_t, -80, 0);
-        changeBackgroundPosition(your, 250, 0);
-        changeBackgroundPosition(friend, 350, 0);
-        changeBackgroundPosition(connection_c_0_alt, 0, -80);
-        changeBackgroundPosition(connection_o_0_alt, 0, -80);
-        changeBackgroundPosition(connection_n_0_alt, 0, -80);
-        changeBackgroundPosition(connection_n_1_alt, 0, -80);
-        changeBackgroundPosition(connection_e_alt, 0, -80);
-        changeBackgroundPosition(connection_c_1_alt, 0, -80);
-        changeBackgroundPosition(connection_t_alt, 0, -80);
-        changeBackgroundPosition(connection_i_alt, 0, -80);
-        changeBackgroundPosition(connection_o_1_alt, 0, -80);
-        changeBackgroundPosition(connection_n_2_alt, 0, -80);
-    }, timeOut + 3000);
+        changeLetter(your, your_alt, -280, 0, 0, 0, 2000);
+        changeLetter(friend, friend_alt, -280, 0, 0, 0, 2000);
+    }, 4500);
 
+    //Sequence 4: Changing "CONNECTION" from black letters to alternative letters
     setTimeout(() => {
-        changeLetter(my_m_alt, my_m, 80, 0, 0, 0, 0);
-        changeLetter(my_y_alt, my_y, 80, 0, 0, 0, 0);
+        changeLetter(connection_c_0, connection_c_0_alt, -80, 0, 0, 0, 2000);
+        changeLetter(connection_o_0, connection_o_0_alt, -80, 0, 0, 0, 2000);
+        changeLetter(connection_n_0, connection_n_0_alt, -80, 0, 0, 0, 2000);
+        changeLetter(connection_n_1, connection_n_1_alt, -80, 0, 0, 0, 2000);
+        changeLetter(connection_e, connection_e_alt, -80, 0, 0, 0, 2000);
+        changeLetter(connection_c_1, connection_c_1_alt, -80, 0, 0, 0, 2000);
+        changeLetter(connection_t, connection_t_alt, -80, 0, 0, 0, 2000);
+        changeLetter(connection_i, connection_i_alt, -80, 0, 0, 0, 2000);
+        changeLetter(connection_o_1, connection_o_1_alt, -80, 0, 0, 0, 2000);
+        changeLetter(connection_n_2, connection_n_2_alt, -80, 0, 0, 0, 2000);
+    }, 6000);
 
-        changeLetter(spot_s_alt, spot_s, 80, 0, 0, 0, 0);
-        changeLetter(spot_p_alt, spot_p, 80, 0, 0, 0, 0);
-        changeLetter(spot_o_alt, spot_o, 80, 0, 0, 0, 0);
-        changeLetter(spot_t_alt, spot_t, 80, 0, 0, 0, 0);
-    }, timeOut + 3500);
-
+    //Sequence 5: Returning them back to black letters
     setTimeout(() => {
-        changeLetter(your_alt, your, -250, 0, 0, 0, 1000);
-        changeLetter(friend_alt, friend, -350, 0, 0, 0, 2000);
-    }, timeOut + 4500);
+        changeLetter(my_m, my_m_alt, 0, 0, 80, 0, 2000);
+        changeLetter(my_y, my_y_alt, 0, 0, 80, 0, 2000);
 
-    setTimeout(() => {
-        changeLetter(connection_c_0, connection_c_0_alt, 0, 80, 0, 0, 0);
-        changeLetter(connection_o_0, connection_o_0_alt, 0, 80, 0, 0, 0);
-        changeLetter(connection_n_0, connection_n_0_alt, 0, 80, 0, 0, 0);
-        changeLetter(connection_n_1, connection_n_1_alt, 0, 80, 0, 0, 0);
-        changeLetter(connection_e, connection_e_alt, 0, 80, 0, 0, 0);
-        changeLetter(connection_c_1, connection_c_1_alt, 0, 80, 0, 0, 0);
-        changeLetter(connection_t, connection_t_alt, 0, 80, 0, 0, 0);
-        changeLetter(connection_i, connection_i_alt, 0, 80, 0, 0, 0);
-        changeLetter(connection_o_1, connection_o_1_alt, 0, 80, 0, 0, 0);
-        changeLetter(connection_n_2, connection_n_2_alt, 0, 80, 0, 0, 0);
-    }, timeOut + 8000);
+        changeLetter(spot_s, spot_s_alt, 0, 0, 80, 0, 2000);
+        changeLetter(spot_p, spot_p_alt, 0, 0, 80, 0, 2000);
+        changeLetter(spot_o, spot_o_alt, 0, 0, 80, 0, 2000);
+        changeLetter(spot_t, spot_t_alt, 0, 0, 80, 0, 2000);
 
-    setTimeout(() => {
-        changeBackgroundPosition(connection_c_0, 80, 0);
-        changeBackgroundPosition(connection_o_0, 80, 0);
-        changeBackgroundPosition(connection_n_0, 80, 0);
-        changeBackgroundPosition(connection_n_1, 80, 0);
-        changeBackgroundPosition(connection_e, 80, 0);
-        changeBackgroundPosition(connection_c_1, 80, 0);
-        changeBackgroundPosition(connection_t, 80, 0);
-        changeBackgroundPosition(connection_i, 80, 0);
-        changeBackgroundPosition(connection_o_1, 80, 0);
-        changeBackgroundPosition(connection_n_2, 80, 0);
-    }, timeOut + 9000);
+        changeLetter(your, your_alt, 0, 0, 280, 0, 2000);
+        changeLetter(friend, friend_alt, 0, 0, 280, 0, 2000);
 
-    setTimeout(() => {
-        changeLetter(connection_c_0, connection_c_0_alt, 0, 0, -80, 0, 0);
-        changeLetter(connection_o_0, connection_o_0_alt, 0, 0, -80, 0, 0);
-        changeLetter(connection_n_0, connection_n_0_alt, 0, 0, -80, 0, 0);
-        changeLetter(connection_n_1, connection_n_1_alt, 0, 0, -80, 0, 0);
-        changeLetter(connection_e, connection_e_alt, 0, 0, -80, 0, 0);
-        changeLetter(connection_c_1, connection_c_1_alt, 0, 0, -80, 0, 0);
-        changeLetter(connection_t, connection_t_alt, 0, 0, -80, 0, 0);
-        changeLetter(connection_i, connection_i_alt, 0, 0, -80, 0, 0);
-        changeLetter(connection_o_1, connection_o_1_alt, 0, 0, -80, 0, 0);
-        changeLetter(connection_n_2, connection_n_2_alt, 0, 0, -80, 0, 0);
-    }, timeOut + 10000);
+        changeLetter(connection_c_0, connection_c_0_alt, 0, 0, 80, 0, 2000);
+        changeLetter(connection_o_0, connection_o_0_alt, 0, 0, 80, 0, 2000);
+        changeLetter(connection_n_0, connection_n_0_alt, 0, 0, 80, 0, 2000);
+        changeLetter(connection_n_1, connection_n_1_alt, 0, 0, 80, 0, 2000);
+        changeLetter(connection_e, connection_e_alt, 0, 0, 80, 0, 2000);
+        changeLetter(connection_c_1, connection_c_1_alt, 0, 0, 80, 0, 2000);
+        changeLetter(connection_t, connection_t_alt, 0, 0, 80, 0, 2000);
+        changeLetter(connection_i, connection_i_alt, 0, 0, 80, 0, 2000);
+        changeLetter(connection_o_1, connection_o_1_alt, 0, 0, 80, 0, 2000);
+        changeLetter(connection_n_2, connection_n_2_alt, 0, 0, 80, 0, 2000);
+    }, 7500);
 }
 
 // callThem();
@@ -219,10 +209,10 @@ function callThem() {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
-  
-async function run_in_loop(params) {
+
+async function run_in_loop() {
     callThem();
-    await sleep(11000);
+    await sleep(6500);
     run_in_loop();
 }
 
