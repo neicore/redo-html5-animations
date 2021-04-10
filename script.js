@@ -200,7 +200,7 @@ function callThem() {
     }, timeOut + 9000);
 
     setTimeout(() => {
-        changeLetter(connection_c_0, connection_c_0_alt, 0, 0, -80, 0, 100);
+        changeLetter(connection_c_0, connection_c_0_alt, 0, 0, -80, 0, 0);
         changeLetter(connection_o_0, connection_o_0_alt, 0, 0, -80, 0, 0);
         changeLetter(connection_n_0, connection_n_0_alt, 0, 0, -80, 0, 0);
         changeLetter(connection_n_1, connection_n_1_alt, 0, 0, -80, 0, 0);
@@ -213,17 +213,17 @@ function callThem() {
     }, timeOut + 10000);
 }
 
-callThem();
+// callThem();
 
 // Loop all animations
-// function sleep(ms) {
-//     return new Promise(resolve => setTimeout(resolve, ms));
-//   }
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
   
-// async function run_in_loop(params) {
-//     callThem();
-//     await sleep(13000);
-//     run_in_loop();
-// }
+async function run_in_loop(params) {
+    callThem();
+    await sleep(11000);
+    run_in_loop();
+}
 
-// run_in_loop();
+run_in_loop();
