@@ -1,221 +1,210 @@
-//Querying all titles container from the DOM
-let titlesContainer = document.querySelector('.Stage_titles_id');
-titlesContainer.style.transform = 'scale(0)';
+//Selecting all DOM elements needed, i.e. body, titles, titles continer, titles and titles fragments
+const pageBody = document.querySelector('body');
+const titlesContainer = document.querySelector('.titles-container');
+const titles = document.querySelectorAll('.titles');
 
-//Querying "MY" from the DOM
-let my_m = document.querySelector('.Stage_titles_M_id');
-let my_m_alt = document.querySelector('.Stage_titles_alt_M_id');
-let my_y = document.querySelector('.Stage_titles_y_id');
-let my_y_alt = document.querySelector('.Stage_titles_alt_y_id');
+const blackTitles = document.querySelector('.titles-black');
+const blueRedTitles = document.querySelector('.titles-blue-red');
+const blueGreenTitles = document.querySelector('.titles-blue-green');
+const redDarkTitles = document.querySelector('.titles-red-dark');
 
-//Querying "SPOT" from the DOM
-let spot_s = document.querySelector('.Stage_titles_alt_s_id');
-let spot_s_alt = document.querySelector('.Stage_titles_s_id');
+const blackLetters = document.querySelectorAll('.black-letter');
+const blackLettersLine3 = document.querySelectorAll('.black-letter-line-3');
+const blackLettersLine2 = document.querySelectorAll('.black-letter-line-2');
+const blackLettersLine1 = document.querySelectorAll('.black-letter-line-1');
+const blackLettersLine3P1 = document.querySelectorAll('.black-letter-line-3-part-1');
+const blackLettersLine3P2 = document.querySelectorAll('.black-letter-line-3-part-2');
+const blackLettersLine2P1 = document.querySelectorAll('.black-letter-line-2-part-1');
+const blackLettersLine2P2 = document.querySelectorAll('.black-letter-line-2-part-2');
+const blackLettersLine1P1 = document.querySelectorAll('.black-letter-line-1-part-1');
+const blackLettersLine1P2 = document.querySelectorAll('.black-letter-line-1-part-2');
+const blackLettersParts = document.querySelectorAll('.black-letter-part');
 
-let spot_p = document.querySelector('.Stage_titles_alt_p_id');
-let spot_p_alt = document.querySelector('.Stage_titles_p_id');
+const blueRedLetters = document.querySelectorAll('.blue-red');
+const blueRedLettersLine3 = document.querySelectorAll('.blue-red-line-3');
+const blueRedLettersLine2 = document.querySelectorAll('.blue-red-line-2');
+const blueRedLettersLine1 = document.querySelectorAll('.blue-red-line-1');
+const blueRedLettersLine3P1 = document.querySelectorAll('.blue-red-line-3-part-1');
+const blueRedLettersLine3P2 = document.querySelectorAll('.blue-red-line-3-part-2');
+const blueRedLettersLine2P1 = document.querySelectorAll('.blue-red-line-2-part-1');
+const blueRedLettersLine2P2 = document.querySelectorAll('.blue-red-line-2-part-2');
+const blueRedLettersLine1P1 = document.querySelectorAll('.blue-red-line-1-part-1');
+const blueRedLettersLine1P2 = document.querySelectorAll('.blue-red-line-1-part-2');
+const blueRedLettersParts = document.querySelectorAll('.blue-red-letter-part');
+const blueRedGradientGroup = document.querySelectorAll('.blue-red-gradient-group');
+const blueRedGradientParts = document.querySelectorAll('.blue-red-gradient-part');
 
-let spot_o = document.querySelector('.Stage_titles_alt_o_id');
-let spot_o_alt = document.querySelector('.Stage_titles_o_id');
+const blueGreenLetters = document.querySelectorAll('.blue-green');
+const blueGreenLettersLine3 = document.querySelectorAll('.blue-green-line-3');
+const blueGreenLettersLine2 = document.querySelectorAll('.blue-green-line-2');
+const blueGreenLettersLine1 = document.querySelectorAll('.blue-green-line-1');
+const blueGreenLettersLine3P1 = document.querySelectorAll('.blue-green-line-3-part-1');
+const blueGreenLettersLine3P2 = document.querySelectorAll('.blue-green-line-3-part-2');
+const blueGreenLettersLine2P1 = document.querySelectorAll('.blue-green-line-2-part-1');
+const blueGreenLettersLine2P2 = document.querySelectorAll('.blue-green-line-2-part-2');
+const blueGreenLettersLine1P1 = document.querySelectorAll('.blue-green-line-1-part-1');
+const blueGreenLettersLine1P2 = document.querySelectorAll('.blue-green-line-1-part-2');
+const blueGreenLettersParts = document.querySelectorAll('.blue-green-letter-part');
+const blueGreenGradientGroup = document.querySelectorAll('.blue-green-gradient-group');
+const blueGreenGradientParts = document.querySelectorAll('.blue-green-gradient-part');
 
-let spot_t = document.querySelector('.Stage_titles_alt_t_id');
-let spot_t_alt = document.querySelector('.Stage_titles_t_id');
+const redDarkLetters = document.querySelectorAll('.red-dark');
+const redDarkLettersLine3 = document.querySelectorAll('.red-dark-line-3');
+const redDarkLettersLine2 = document.querySelectorAll('.red-dark-line-2');
+const redDarkLettersLine1 = document.querySelectorAll('.red-dark-line-1');
+const redDarkLettersLine3P1 = document.querySelectorAll('.red-dark-line-3-part-1');
+const redDarkLettersLine3P2 = document.querySelectorAll('.red-dark-line-3-part-2');
+const redDarkLettersLine2P1 = document.querySelectorAll('.red-dark-line-2-part-1');
+const redDarkLettersLine2P2 = document.querySelectorAll('.red-dark-line-2-part-2');
+const redDarkLettersLine1P1 = document.querySelectorAll('.red-dark-line-1-part-1');
+const redDarkLettersLine1P2 = document.querySelectorAll('.red-dark-line-1-part-2');
+const redDarkLettersParts = document.querySelectorAll('.red-dark-letter-part');
+const redDarkGradientGroup = document.querySelectorAll('.red-dark-gradient-group');
+const redDarkGradientParts = document.querySelectorAll('.red-dark-gradient-part');
 
-//Querying "YOUR" from the DOM
-let your = document.querySelector('.Stage_titles_alt_your_id');
-let your_alt = document.querySelector('.Stage_titles_your_id');
-
-//Querying "FRIEND" from the DOM
-let friend = document.querySelector('.Stage_titles_friend_id');
-let friend_alt = document.querySelector('.Stage_titles_alt_friend_id');
-
-//Querying "OUR" from the DOM
-let our_o = document.querySelector('.Stage_titles_O_32_id');
-let our_u = document.querySelector('.Stage_titles_u_22_id');
-let our_r = document.querySelector('.Stage_titles_r_32_id');
-
-//Querying "CONNECTION" from the DOM
-let connection_c_0 = document.querySelector('.Stage_titles_alt_C_id');
-let connection_c_0_alt = document.querySelector('.Stage_titles_C_id');
-
-let connection_o_0 = document.querySelector('.Stage_titles_alt_o_3Copy_id');
-let connection_o_0_alt = document.querySelector('.Stage_titles_o_42_id');
-
-let connection_n_0 = document.querySelector('.Stage_titles_alt_nCopy_id');
-let connection_n_0_alt = document.querySelector('.Stage_titles_n_22_id');
-
-let connection_n_1 = document.querySelector('.Stage_titles_alt_n_id');
-let connection_n_1_alt = document.querySelector('.Stage_titles_n_22Copy_id');
-
-let connection_e = document.querySelector('.Stage_titles_alt_e_id');
-let connection_e_alt = document.querySelector('.Stage_titles_e_22_id');
-
-let connection_c_1 = document.querySelector('.Stage_titles_alt_c_2_id');
-let connection_c_1_alt = document.querySelector('.Stage_titles_c_2_id');
-
-let connection_t = document.querySelector('.Stage_titles_alt_t_2_id');
-let connection_t_alt = document.querySelector('.Stage_titles_t_22_id');
-
-let connection_i = document.querySelector('.Stage_titles_alt_i_id');
-let connection_i_alt = document.querySelector('.Stage_titles_i_22_id');
-
-let connection_o_1 = document.querySelector('.Stage_titles_alt_o_3_id');
-let connection_o_1_alt = document.querySelector('.Stage_titles_o_5_id');
-
-let connection_n_2 = document.querySelector('.Stage_titles_alt_nCopy2_id');
-let connection_n_2_alt = document.querySelector('.Stage_titles_n_3_id');
-
-//Function for changing letters
-function changeLetter(currentLetter, replacingLetter, posX_1, posY_1, posX_2, posY_2, duration) {
-    replacingLetter.style.display = 'block';
-    currentLetter.style.display = 'block';
-
-    anime({
-        targets: currentLetter,
-        backgroundPosition: `${posX_1}px ${posY_1}px`,
-        easing: 'easeOutExpo',
-        duration: duration,
-    });
-
-    anime({
-        targets: replacingLetter,
-        backgroundPosition: `${posX_2}px ${posY_2}px`,
-        easing: 'easeOutExpo',
-        duration: duration,
-    });
+//Function to assign width & height to an element
+function widthHeight(element, widthValue, heightValue) {
+    element.style.width = widthValue;
+    element.style.height = heightValue;
 }
 
-//Function for changing background position
-function changeBackgroundPosition(letter, positionX, positionY) {
-    letter.style.display = 'none';
-    anime({
-        targets: letter,
-        backgroundPosition: `${positionX}px ${positionY}px`,
-    });
+//Function to assign z-index to an element
+function elementZIndex(element, zIndexValue) {
+    element.style.zIndex = zIndexValue;
 }
 
-// Resseting all leters to black before the titles scales up
-changeLetter(my_m_alt, my_m, 80, 0, 0, 0, 0);
-changeLetter(spot_p_alt, spot_p, 75, 0, 0, 0, 0);
-changeLetter(spot_o_alt, spot_o, 80, 0, 0, 0, 0);
-changeLetter(connection_c_0_alt, connection_c_0, 0, 70, 0, 0, 0);
-changeLetter(connection_o_0_alt, connection_o_0, 0, -53, 0, 0, 0);
-changeLetter(connection_n_0_alt, connection_n_0, -40, 0, 0, 0, 0);
-changeLetter(connection_n_1_alt, connection_n_1, -40, 0, 0, 0, 0);
-changeLetter(connection_e_alt, connection_e, 40, 0, 0, 0, 0);
-changeLetter(connection_c_1_alt, connection_c_1, 0, -55, 0, 0, 0);
-changeLetter(connection_t_alt, connection_t, -30, 0, 0, 0, 0);
-changeLetter(connection_i_alt, connection_i, 25, 0, 0, 0, 0);
-changeLetter(connection_o_1_alt, connection_o_1, 0, -53, 0, 0, 0);
-changeLetter(connection_n_2_alt, connection_n_2, 0, 52, 0, 0, 0);
+//Function to hide all letters
+function hideLetters(letters, gradients) {
+    for (let i = 0; i < letters.length; i++) {
+        letters[i].style.opacity = 0;
+    }
 
-// Resseting background position of all alternative letter
-changeBackgroundPosition(my_m_alt, 80, 0, 0, 0);
-changeBackgroundPosition(my_y_alt, 80, 0, 0, 0);
+    for (let i = 0; i < gradients.length; i++) {
+        gradients[i].style.opacity = 0;
+    }
+}
 
-changeBackgroundPosition(spot_s_alt, 80, 0, 0, 0);
-changeBackgroundPosition(spot_p_alt, 80, 0, 0, 0);
-changeBackgroundPosition(spot_o_alt, 80, 0, 0, 0);
-changeBackgroundPosition(spot_t_alt, 80, 0, 0, 0);
+//Body Styles
+pageBody.style.overflow = 'hidden';
+pageBody.style.margin = '0';
+pageBody.style.padding = '0';
 
-changeBackgroundPosition(your_alt, 280, 0, 0, 0);
-changeBackgroundPosition(friend_alt, 280, 0, 0, 0);
+//Titles Container Styles
+widthHeight(titlesContainer, '100vw', '100vh');
+titlesContainer.style.display = 'flex';
+titlesContainer.style.justifyContent = 'center';
+titlesContainer.style.alignItems = 'center';
+titlesContainer.style.overflow = 'hidden';
 
-changeBackgroundPosition(connection_c_0_alt, 80, 0, 0, 0);
-changeBackgroundPosition(connection_o_0_alt, 80, 0, 0, 0);
-changeBackgroundPosition(connection_n_0_alt, 80, 0, 0, 0);
-changeBackgroundPosition(connection_n_1_alt, 80, 0, 0, 0);
-changeBackgroundPosition(connection_e_alt, 80, 0, 0, 0);
-changeBackgroundPosition(connection_c_1_alt, 80, 0, 0, 0);
-changeBackgroundPosition(connection_t_alt, 80, 0, 0, 0);
-changeBackgroundPosition(connection_i_alt, 80, 0, 0, 0);
-changeBackgroundPosition(connection_o_1_alt, 80, 0, 0, 0);
-changeBackgroundPosition(connection_n_2_alt, 80, 0, 0, 0);
+//Titles Styles
+for (let i = 0; i < titles.length; i++) {
+    titles[i].style.position = 'absolute';
+    widthHeight(titles[i], '80%', 'auto');
+}
 
-// starting animation
-// Sequence 1: Scaling up all titles to 1 from 0
-anime({
-    targets: titlesContainer,
-    scale: {
-        value: 1,
-        duration: 2000,
-        easing: 'easeInOutExpo'
-    },
-    delay: anime.stagger(100, { start: 700 }),
+elementZIndex(blackTitles, '4');
+elementZIndex(blueRedTitles, '3');
+elementZIndex(blueGreenTitles, '2');
+elementZIndex(redDarkTitles, '1');
+
+hideLetters(blueRedLetters, blueRedGradientGroup);
+hideLetters(blueGreenLetters, blueGreenGradientGroup);
+hideLetters(redDarkLetters, redDarkGradientGroup);
+
+for (let i = 0; i < blackLetters.length; i++) {
+    blackLetters[i].style.transform = 'scale(0)';
+}
+
+var firstAnimationSeq = anime.timeline({
+    loop: false,
 });
 
-function callThem() {
+var secondAnimationSeq = anime.timeline({
+    loop: true,
+});
 
-    //Sequence 2: Changing "MY SPOT" from black letters to alternative letters
-    setTimeout(() => {
-        changeLetter(my_m, my_m_alt, -80, 0, 0, 0, 2000);
-        changeLetter(my_y, my_y_alt, -80, 0, 0, 0, 2000);
+firstAnimationSeq.add({
+    targets: blackLettersLine1P1,
+    scale: [{ value: 1, easing: 'spring(1, 80, 10, 0)', duration: 1000 }],
+    delay: anime.stagger(100, { grid: [1, 1], from: 'center' })
+}).add({
+    targets: blackLettersLine1P2,
+    scale: [{ value: 1, easing: 'spring(1, 80, 10, 0)', duration: 1000 }],
+    delay: anime.stagger(100, { grid: [1, 1], from: 'center' }),
+}).add({
+    targets: blackLettersLine2P1,
+    scale: [{ value: 1, easing: 'spring(1, 80, 10, 0)', duration: 1000 }],
+    delay: anime.stagger(100, { grid: [1, 1], from: 'center' }),
+}).add({
+    targets: blackLettersLine2P2,
+    scale: [{ value: 1, easing: 'spring(1, 80, 10, 0)', duration: 1000 }],
+    delay: anime.stagger(100, { grid: [1, 1], from: 'center' }),
+}).add({
+    targets: blackLettersLine3,
+    scale: [{ value: 1, easing: 'easeOutBounce', duration: 1000 }],
+    delay: anime.stagger(200, { from: 'center' }),
+})
 
-        changeLetter(spot_s, spot_s_alt, -80, 0, 0, 0, 2000);
-        changeLetter(spot_p, spot_p_alt, -80, 0, 0, 0, 2000);
-        changeLetter(spot_o, spot_o_alt, -80, 0, 0, 0, 2000);
-        changeLetter(spot_t, spot_t_alt, -80, 0, 0, 0, 2000);
-    }, 3000);
 
-    //Sequence 3: Changing "YOUR FRIEND" from black letters to alternative letters
-    setTimeout(() => {
-        changeLetter(your, your_alt, -280, 0, 0, 0, 2000);
-        changeLetter(friend, friend_alt, -280, 0, 0, 0, 2000);
-    }, 4500);
-
-    //Sequence 4: Changing "CONNECTION" from black letters to alternative letters
-    setTimeout(() => {
-        changeLetter(connection_c_0, connection_c_0_alt, -80, 0, 0, 0, 2000);
-        changeLetter(connection_o_0, connection_o_0_alt, -80, 0, 0, 0, 2000);
-        changeLetter(connection_n_0, connection_n_0_alt, -80, 0, 0, 0, 2000);
-        changeLetter(connection_n_1, connection_n_1_alt, -80, 0, 0, 0, 2000);
-        changeLetter(connection_e, connection_e_alt, -80, 0, 0, 0, 2000);
-        changeLetter(connection_c_1, connection_c_1_alt, -80, 0, 0, 0, 2000);
-        changeLetter(connection_t, connection_t_alt, -80, 0, 0, 0, 2000);
-        changeLetter(connection_i, connection_i_alt, -80, 0, 0, 0, 2000);
-        changeLetter(connection_o_1, connection_o_1_alt, -80, 0, 0, 0, 2000);
-        changeLetter(connection_n_2, connection_n_2_alt, -80, 0, 0, 0, 2000);
-    }, 6000);
-
-    //Sequence 5: Returning them back to black letters
-    setTimeout(() => {
-        changeLetter(my_m, my_m_alt, 0, 0, 80, 0, 2000);
-        changeLetter(my_y, my_y_alt, 0, 0, 80, 0, 2000);
-
-        changeLetter(spot_s, spot_s_alt, 0, 0, 80, 0, 2000);
-        changeLetter(spot_p, spot_p_alt, 0, 0, 80, 0, 2000);
-        changeLetter(spot_o, spot_o_alt, 0, 0, 80, 0, 2000);
-        changeLetter(spot_t, spot_t_alt, 0, 0, 80, 0, 2000);
-
-        changeLetter(your, your_alt, 0, 0, 280, 0, 2000);
-        changeLetter(friend, friend_alt, 0, 0, 280, 0, 2000);
-
-        changeLetter(connection_c_0, connection_c_0_alt, 0, 0, 80, 0, 2000);
-        changeLetter(connection_o_0, connection_o_0_alt, 0, 0, 80, 0, 2000);
-        changeLetter(connection_n_0, connection_n_0_alt, 0, 0, 80, 0, 2000);
-        changeLetter(connection_n_1, connection_n_1_alt, 0, 0, 80, 0, 2000);
-        changeLetter(connection_e, connection_e_alt, 0, 0, 80, 0, 2000);
-        changeLetter(connection_c_1, connection_c_1_alt, 0, 0, 80, 0, 2000);
-        changeLetter(connection_t, connection_t_alt, 0, 0, 80, 0, 2000);
-        changeLetter(connection_i, connection_i_alt, 0, 0, 80, 0, 2000);
-        changeLetter(connection_o_1, connection_o_1_alt, 0, 0, 80, 0, 2000);
-        changeLetter(connection_n_2, connection_n_2_alt, 0, 0, 80, 0, 2000);
-    }, 7500);
-}
-
-// callThem();
-
-// Loop all animations
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
-async function run_in_loop() {
-    callThem();
-    await sleep(6500);
-    run_in_loop();
-}
-
-run_in_loop();
-
-//Loop
+setTimeout(() => {
+    secondAnimationSeq.add({
+        targets: [blueRedLetters, blueRedGradientGroup, blueGreenLetters, blueGreenGradientGroup, redDarkLetters, redDarkGradientGroup],
+        opacity: 1,
+    }).add({
+        targets: blackLettersLine1P1,
+        translateY: [{ value: 400, easing: 'easeInOutBack', duration: 1000 }],
+        delay: anime.stagger(300),
+    }).add({
+        targets: blackLettersLine2P2,
+        translateY: [{ value: 400, easing: 'easeInOutBack', duration: 1000 }],
+        delay: anime.stagger(300),
+    }).add({
+        targets: blackLettersLine1P2,
+        translateY: [{ value: 400, easing: 'easeInOutBack', duration: 1000 }],
+        delay: anime.stagger(350),
+    }).add({
+        targets: blackLettersLine2P1,
+        translateY: [{ value: 400, easing: 'easeInOutBack', duration: 1000 }],
+        delay: anime.stagger(300),
+    }).add({
+        targets: blackLettersLine3,
+        translateY: [{ value: -400, easing: 'easeInOutQuint', duration: 1000 }],
+        delay: anime.stagger(100, { grid: [2, 1], from: 'center' }),
+    }).add({
+        targets: [blueRedLetters, blueRedGradientGroup],
+        opacity: [
+            { value: .1, easing: 'easeOutSine', duration: 500 },
+            { value: 1, easing: 'easeInOutQuad', duration: 1200 },
+            { value: 0, easing: 'easeInOutQuad', duration: 1700 },
+        ],
+        delay: anime.stagger(250, { grid: [14, 5], from: 'center' }),
+    }).add({
+        targets: [blueGreenLetters, blueGreenGradientGroup],
+        opacity: [
+            { value: .1, easing: 'easeOutSine', duration: 500 },
+            { value: 1, easing: 'easeInOutQuad', duration: 1200 },
+            { value: 0, easing: 'easeInOutQuad', duration: 1700 },
+        ],
+        delay: anime.stagger(250, { grid: [14, 5], from: 'center' }),
+    }).add({
+        targets: blackLettersLine1P1,
+        translateY: [{ value: 0, easing: 'easeInOutBack', duration: 1000 }],
+        delay: anime.stagger(300),
+    }).add({
+        targets: blackLettersLine2P2,
+        translateY: [{ value: 0, easing: 'easeInOutBack', duration: 1000 }],
+        delay: anime.stagger(300),
+    }).add({
+        targets: blackLettersLine1P2,
+        translateY: [{ value: 0, easing: 'easeInOutBack', duration: 1000 }],
+        delay: anime.stagger(350),
+    }).add({
+        targets: blackLettersLine2P1,
+        translateY: [{ value: 0, easing: 'easeInOutBack', duration: 1000 }],
+        delay: anime.stagger(300),
+    }).add({
+        targets: blackLettersLine3,
+        translateY: [{ value: 0, easing: 'easeInOutQuint', duration: 1000 }],
+        delay: anime.stagger(100, { grid: [2, 1], from: 'center' }),
+    })
+}, 10000);
